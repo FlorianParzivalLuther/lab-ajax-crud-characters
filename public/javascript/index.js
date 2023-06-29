@@ -10,23 +10,68 @@ window.addEventListener("load", () => {
 window.addEventListener("load", () => {
   document
     .getElementById("fetch-all")
-    .addEventListener("click", function (event) {});
+    .addEventListener("click", function (event) {
+      charactersAPI
+        .getFullList()
+        .then((response) => {
+          return response.data;
+        })
+        .catch((error) => {
+          return error;
+        });
+    });
 
   document
     .getElementById("fetch-one")
-    .addEventListener("click", function (event) {});
+    .addEventListener("click", function (event) {
+      charactersAPI
+        .getOneRegister(characterId)
+        .then((response) => {
+          return response.data;
+        })
+        .catch((error) => {
+          return error;
+        });
+    });
 
   document
     .getElementById("delete-one")
-    .addEventListener("click", function (event) {});
+    .addEventListener("click", function (event) {
+      charactersAPI
+        .deleteOneRegister(characterId)
+        .then((response) => {
+          return response.data;
+        })
+        .catch((error) => {
+          return error;
+        });
+    });
 
   document
     .getElementById("edit-character-form")
-    .addEventListener("submit", function (event) {});
+    .addEventListener("submit", function (event) {
+      charactersAPI
+        .updateOneRegister(characterId, characterInfo)
+        .then((response) => {
+          return response.data;
+        })
+        .catch((error) => {
+          return error;
+        });
+    });
 
   document
     .getElementById("new-character-form")
-    .addEventListener("submit", function (event) {});
+    .addEventListener("submit", function (event) {
+      charactersAPI
+        .createOneRegister(characterInfo)
+        .then((response) => {
+          return response.data;
+        })
+        .catch((error) => {
+          return error;
+        });
+    });
 });
 
 document.getElementById("get-country-btn").addEventListener("click", () => {
